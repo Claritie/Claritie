@@ -1,0 +1,21 @@
+# https://toml.io
+
+# Minimalistic Route (defaults to GET)
+[Main]
+REQUEST    = /
+USECASE    = Welcome
+CONTROLLER = main
+
+# Specific Use Case "HelloWorld" Route
+[HelloWord]
+REQUEST    = hello/{world}
+METHOD     = GET
+CONTROLLER = hi
+
+# Middelware Events for HelloWorld
+BEFORE     = visitorCheck
+AFTER      = logUpdate
+
+# Error Handling for HelloWorld
+DISPLAY_ERRORS = true
+LOG_ERRORS     = false
