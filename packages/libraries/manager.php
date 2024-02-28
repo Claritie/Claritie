@@ -11,6 +11,7 @@
 
 ## Libraries
 
+# Guzzle
 # PHPMailer/PHPMailer
 # JBZoo/SimpleTypes (ValueObjects)
 # smartemailing/types
