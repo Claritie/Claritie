@@ -10,11 +10,12 @@ class Dispatcher
 
         if (count($parts) < 2)
         {
-            http_response_code(404);
-            echo "Invalid route.";
+            require_once 'Middleware/PostProcessing/Errors/InvalidRoute.php';
 
-            return;
+            return; // false
         }
+
+        ###
 
         $eventPath      = "Events/" . implode('/', array_slice($parts, 0, -1));
         $eventClassName = ucfirst(end($parts));
@@ -22,10 +23,13 @@ class Dispatcher
 
         if (!file_exists($fullPath))
         {
-            http_response_code(404);
-            echo "Event not found.";
+            var_dump($fullPath);
+            require_once 'Middleware/PostProcessing/Errors/NotFound.php';
+
             return;
         }
+
+        ###
 
         require_once $fullPath;
 
@@ -39,6 +43,8 @@ class Dispatcher
             return;
         }
 
+        ###
+
         $instance = new $fqcn();
 
         if (!method_exists($instance, strtolower($method)))
@@ -48,6 +54,8 @@ class Dispatcher
 
             return;
         }
+
+        ###
 
         call_user_func_array([$instance, strtolower($method)], array_slice($parts, 2));
     }
