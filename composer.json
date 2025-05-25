@@ -1,5 +1,6 @@
 {
   "require": {
+    "php": "^8.3",
     "twig/twig": "^3.0",
     "yosymfony/toml": "^1.0"
   },
@@ -7,5 +8,8 @@
     "psr-4": {
       "App\\": "./"
     }
+  },
+  "config": {
+    "vendor-dir": "Packages"
   }
 }
