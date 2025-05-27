@@ -2,6 +2,9 @@
 # Created by https://www.gitignore.io/api/vue,laravel,phpstorm,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=vue,laravel,phpstorm,visualstudiocode
 
+### Claritie ###
+/Packages/
+
 ### Laravel ###
 /vendor/
 node_modules/
