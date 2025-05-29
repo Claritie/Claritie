@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Core\Middleware;
-
 
 trait AbstractMiddleware
 {
@@ -13,7 +11,7 @@ trait AbstractMiddleware
 
         foreach ($scanDirectoryList as $file)
         {
-            if(!static::isDotNotationFile($file) && static::isPhpFile($file))
+            if (!static::isDotNotationFile($file) && static::isPhpFile($file))
             {
                 $middlewareList[] = $namespace.substr($file, 0, -4);
             }
